@@ -17,6 +17,8 @@ public class Logic {
 	AgeComparator ageComp;
 	BreedComparator breedComp;
 	NameComparator nameComp;
+	String[] saveId,saveName,saveAge,saveBreed;
+	
 	public Logic(PApplet app) {
 		this.app = app;
 		info1 = app.loadStrings("../texts/TXT1.txt");
@@ -25,6 +27,10 @@ public class Logic {
 		ageComp = new AgeComparator();
 		breedComp = new BreedComparator();
 		nameComp = new NameComparator();
+		saveId = new String[5];
+		saveName = new String[5];
+		saveAge = new String[5];
+		saveBreed = new String[5];
 		TextDogs();
 	}
 	public void TextDogs() {
@@ -60,14 +66,24 @@ public class Logic {
 		for (int i = 0; i < ListOfDogs.size(); i++) {
 			System.out.println(ListOfDogs.get(i).id);
 			System.out.println(ListOfDogs.get(i).name);
-			System.out.println(ListOfDogs.get(i).breed);
 			System.out.println(ListOfDogs.get(i).age);
+			System.out.println(ListOfDogs.get(i).breed);
+			
 		}
 		}
 	public void sortList(char key) {
 		switch (key) {
 		case 'i':
 			Collections.sort(ListOfDogs);
+			for (int i = 0; i < ListOfDogs.size(); i++) {
+				String id = Integer.toString(ListOfDogs.get(i).getId());
+				String name = ListOfDogs.get(i).getName().toLowerCase();
+				String age = Integer.toString(ListOfDogs.get(i).getAge());
+				String breed = ListOfDogs.get(i).getBreed().toLowerCase();
+				String row = id + "," + name + "," + age + "," + breed;
+				saveId[i]=row;
+				app.saveStrings("texts/byID.txt", saveId);
+			}
 			break;
 		case 'n':
 			Collections.sort(ListOfDogs,nameComp);
