@@ -1,10 +1,10 @@
 package model;
 
-import java.util.Date;
+
 
 import processing.core.PApplet;
 
-public class Dog {
+public class Dog implements Comparable<Dog> {
 	private PApplet app;
 	String name,breed;
 	int age,id;
@@ -14,5 +14,22 @@ public class Dog {
 		this.age=age;
 		this.breed=breed;
 		this.app=app;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getBreed() {
+		return breed;
+	}
+	public int getAge() {
+		return age;
+	}
+	public int getId() {
+		return id;
+	}
+	@Override
+	public int compareTo(Dog nextDog) {
+		// TODO Auto-generated method stub
+		return this.id - nextDog.getId();
 	}
 }
