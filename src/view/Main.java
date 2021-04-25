@@ -18,9 +18,9 @@ public void setup() {
 		controller= new Controller(this);
 	}
 public void draw() {
-	
+	controller.prueba();	
 }
 public void keyPressed() {
-	
+	controller.sortList(key);
 }
 }

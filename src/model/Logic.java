@@ -4,6 +4,7 @@ package model;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.LinkedList;
 
 import processing.core.PApplet;
@@ -13,11 +14,17 @@ public class Logic {
 	private String[] info1;
 	private String[] info2;
 	private LinkedList<Dog> ListOfDogs;
+	AgeComparator ageComp;
+	BreedComparator breedComp;
+	NameComparator nameComp;
 	public Logic(PApplet app) {
 		this.app = app;
 		info1 = app.loadStrings("../texts/TXT1.txt");
 		info2 = app.loadStrings("../texts/TXT2.txt");
 		ListOfDogs = new LinkedList<Dog>();
+		ageComp = new AgeComparator();
+		breedComp = new BreedComparator();
+		nameComp = new NameComparator();
 		TextDogs();
 	}
 	public void TextDogs() {
@@ -47,11 +54,30 @@ public class Logic {
 				
 			}
 		}
+		
+		}
+	public void prueba() {
 		for (int i = 0; i < ListOfDogs.size(); i++) {
 			System.out.println(ListOfDogs.get(i).id);
 			System.out.println(ListOfDogs.get(i).name);
 			System.out.println(ListOfDogs.get(i).breed);
 			System.out.println(ListOfDogs.get(i).age);
+		}
+		}
+	public void sortList(char key) {
+		switch (key) {
+		case 'i':
+			Collections.sort(ListOfDogs);
+			break;
+		case 'n':
+			Collections.sort(ListOfDogs,nameComp);
+			break;
+		case 'b':
+			Collections.sort(ListOfDogs,breedComp);
+			break;
+		case 'a':
+			Collections.sort(ListOfDogs,ageComp);
+			break;
 		}
 	}
 
