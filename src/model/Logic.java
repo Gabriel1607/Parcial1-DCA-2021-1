@@ -3,7 +3,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.Period;
-
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
 import processing.core.PApplet;
@@ -31,20 +31,27 @@ public class Logic {
 			for (int j = 0; j < info2.length; j++) {	
 				
 				String[] dogAttributes2 = info2[j].split(" ");
-				System.out.println(id);
-				System.out.println((dogAttributes2[0]));
 				if(id == Integer.parseInt(dogAttributes2[0])) {
 				
 					String breed = dogAttributes2[1];
 					String birth = dogAttributes2[2];
-					//String[] birthday= birth.split("-");
-	    LocalDate dogBirth = LocalDate.parse(birth);
+					String[] birthday= birth.split("-");
+					String dogBirthday= birthday[2] +"-"+ birthday[1] +"-"+ birthday[0] ;
+	    LocalDate dogBirth = LocalDate.parse(dogBirthday);
+	   // dogBirth.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
 	    LocalDate date = LocalDate.now();
+	   // date.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
 	  int age = calculateAge(dogBirth,date);
 					ListOfDogs.add(new Dog(id, name, age, breed,app));
 				}
 				
 			}
+		}
+		for (int i = 0; i < ListOfDogs.size(); i++) {
+			System.out.println(ListOfDogs.get(i).id);
+			System.out.println(ListOfDogs.get(i).name);
+			System.out.println(ListOfDogs.get(i).breed);
+			System.out.println(ListOfDogs.get(i).age);
 		}
 	}
 
