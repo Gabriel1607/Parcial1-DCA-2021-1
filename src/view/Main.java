@@ -1,7 +1,5 @@
 package view;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import controller.Controller;
 import processing.core.PApplet;
@@ -20,9 +18,7 @@ public void setup() {
 		controller= new Controller(this);
 	}
 public void draw() {
-	LocalDate date = LocalDate.now();
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-	System.out.println(date.format(formatter));
+	
 }
 public void keyPressed() {
 	
