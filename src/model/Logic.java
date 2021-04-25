@@ -89,5 +89,8 @@ public class Logic {
 	            return 0;
 	        }
 	    }
+	 public LinkedList<Dog> getList(){
+		 return ListOfDogs;
+	 }
 	}
 

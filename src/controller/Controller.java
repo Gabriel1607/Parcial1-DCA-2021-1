@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.LinkedList;
+
+import model.Dog;
 import model.Logic;
 import processing.core.PApplet;
 
@@ -17,5 +20,9 @@ public void sortList(char key) {
 	}
 public void prueba() {
 	logic.prueba();
+}
+public LinkedList <Dog> dog(){
+	
+	return logic.getList();
 }
 }

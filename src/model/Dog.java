@@ -15,6 +15,17 @@ public class Dog implements Comparable<Dog> {
 		this.breed=breed;
 		this.app=app;
 	}
+	public void drawAttributes(int x, int y) {
+		app.fill(0);
+		app.text(this.id, x, y);
+		y+=70;
+		app.text(this.name, x, y);
+		y+=70;
+		app.text(this.age, x, y);
+		y+=70;
+		app.text(this.breed, x, y);
+		y+=70;
+	}
 	public String getName() {
 		return name;
 	}

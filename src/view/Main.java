@@ -11,14 +11,21 @@ public class Main extends PApplet{
 		PApplet.main(Main.class.getName());
 	}
 	public void settings() {
-		size(700, 700);
+		size(900, 700);
 	}
 public void setup() {
 		
 		controller= new Controller(this);
 	}
 public void draw() {
-	controller.prueba();	
+	//controller.prueba();
+	background(255);
+	for (int i = 0; i < controller.dog().size(); i++) {
+
+		textSize(15);
+		controller.dog().get(i).drawAttributes(23+(185*i),300);
+	}
+	
 }
 public void keyPressed() {
 	controller.sortList(key);
