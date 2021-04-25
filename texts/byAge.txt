@@ -1,0 +1,5 @@
+4,lola,0,rottweiler
+1,martina,2,labrador-retriever
+3,heisenberg,2,bulldog
+5,nymeria,4,husky-siberiano
+2,kaiser,10,pastor-aleman

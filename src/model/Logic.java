@@ -87,12 +87,40 @@ public class Logic {
 			break;
 		case 'n':
 			Collections.sort(ListOfDogs,nameComp);
+			for (int i = 0; i < ListOfDogs.size(); i++) {
+				String id = Integer.toString(ListOfDogs.get(i).getId());
+				String name = ListOfDogs.get(i).getName().toLowerCase();
+				String age = Integer.toString(ListOfDogs.get(i).getAge());
+				String breed = ListOfDogs.get(i).getBreed().toLowerCase();
+				String row = id + "," + name + "," + age + "," + breed;
+				saveName[i]=row;
+				app.saveStrings("texts/byName.txt", saveName);
+			}
 			break;
 		case 'b':
 			Collections.sort(ListOfDogs,breedComp);
+			for (int i = 0; i < ListOfDogs.size(); i++) {
+				String id = Integer.toString(ListOfDogs.get(i).getId());
+				String name = ListOfDogs.get(i).getName().toLowerCase();
+				String age = Integer.toString(ListOfDogs.get(i).getAge());
+				String breed = ListOfDogs.get(i).getBreed().toLowerCase();
+				String row = id + "," + name + "," + age + "," + breed;
+				saveBreed[i]=row;
+				app.saveStrings("texts/byBreed.txt", saveBreed);
+			}
 			break;
 		case 'a':
 			Collections.sort(ListOfDogs,ageComp);
+			for (int i = 0; i < ListOfDogs.size(); i++) {
+				String id = Integer.toString(ListOfDogs.get(i).getId());
+				String name = ListOfDogs.get(i).getName().toLowerCase();
+				String age = Integer.toString(ListOfDogs.get(i).getAge());
+				String breed = ListOfDogs.get(i).getBreed().toLowerCase();
+				String row = id + "," + name + "," + age + "," + breed;
+				saveAge[i]=row;
+				app.saveStrings("texts/byAge.txt", saveAge);
+			}
+			
 			break;
 		}
 	}
